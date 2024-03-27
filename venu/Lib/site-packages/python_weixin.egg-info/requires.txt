@@ -1,0 +1,6 @@
+simplejson
+requests
+chardet
+six
+xmltodict
+pycryptodome
