@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="60c12350-e12a-43f4-abc1-8b895d23d1bc" name="Default Changelist" comment="" />
+    <list default="true" id="60c12350-e12a-43f4-abc1-8b895d23d1bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,18 +17,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/food_ctrl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="51" column="30" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/order_ctrl.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -61,13 +53,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3807">
-              <caret line="141" column="1" lean-forward="true" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
+            <state relative-caret-position="3780">
+              <caret line="141" column="1" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
               <folding>
                 <element signature="e#315#324#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="113" column="66" lean-forward="true" selection-start-line="113" selection-start-column="66" selection-end-line="113" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
+            <state relative-caret-position="567">
               <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#644#676#0" expanded="true" />
@@ -136,6 +140,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -150,7 +157,6 @@
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/order_ctrl.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/wechat_login_ctrl.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/auth_required_decorator.py" />
-        <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/image_ctrl.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/food_ctrl.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/comment_ctrl.py" />
@@ -158,21 +164,22 @@
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/pay.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/urls.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/utils.py" />
+        <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="133" />
-    <option name="y" value="11" />
-    <option name="width" value="1071" />
-    <option name="height" value="1009" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-69" />
+    <option name="y" value="32" />
+    <option name="width" value="1735" />
+    <option name="height" value="995" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,21 +192,17 @@
               <item name="ChickenDinner8" type="462c0819:PsiDirectoryNode" />
               <item name="ChickenDinner8Server" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ChickenDinner8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ChickenDinner8" type="462c0819:PsiDirectoryNode" />
-              <item name="ChickenDinner8Server" type="462c0819:PsiDirectoryNode" />
-              <item name="ChickenDinner8Server" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project/t1nkuy" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -359,11 +362,20 @@
       <workItem from="1711352373383" duration="1910000" />
       <workItem from="1711358173798" duration="2041000" />
       <workItem from="1711414553974" duration="847000" />
+      <workItem from="1711500741172" duration="694000" />
+      <workItem from="1711532558382" duration="793000" />
+      <workItem from="1711588065836" duration="719000" />
+      <workItem from="1711615953078" duration="1151000" />
+      <workItem from="1711626695638" duration="729000" />
+      <workItem from="1711676285771" duration="705000" />
+      <workItem from="1711705279648" duration="702000" />
+      <workItem from="1711784623475" duration="978000" />
+      <workItem from="1711878196246" duration="753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211470000" />
+    <option name="totallyTimeSpent" value="218694000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -375,14 +387,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="133" y="11" width="1071" height="1009" extended-state="0" />
+    <frame x="-69" y="32" width="1735" height="995" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20178041" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20298508" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24657534" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2891986" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934355" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -412,16 +425,12 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/static/img/caihong.png" />
-    <entry file="file://$PROJECT_DIR$/static/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/index.html" />
     <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/version_1_0.py" />
     <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/static/js/app.ce9a5bf3db82e9a7cc6e.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/MerchantLogo3.3e0b9d1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/MerchantLogo3.3e0b9d1.png" />
     <entry file="file://$PROJECT_DIR$/venu/Lib/site-packages/weixin/base.py" />
     <entry file="file://$PROJECT_DIR$/venu/Lib/site-packages/weixin/login.py" />
     <entry file="file://$PROJECT_DIR$/venu/Lib/site-packages/weixin/config.py">
@@ -452,18 +461,12 @@
     <entry file="file://$PROJECT_DIR$/venu/Lib/site-packages/weixin/bind.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/ionicons.621bd38.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/ionicons.621bd38.svg" />
     <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/admin.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/comment_img1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/caihong_aslnMaC.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/comment_img1.jpg" />
+    <entry file="file://$PROJECT_DIR$/static/img/caihong_aslnMaC.png" />
     <entry file="file://$PROJECT_DIR$/venu/Lib/site-packages/django/core/handlers/exception.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="783">
@@ -587,22 +590,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/food_ctrl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -633,6 +636,26 @@
           <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3780">
+          <caret line="141" column="1" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
+          <folding>
+            <element signature="e#315#324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#644#676#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -671,32 +694,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/food_ctrl.py">
+    <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="30" />
+        <state relative-caret-position="364">
+          <caret line="113" column="66" lean-forward="true" selection-start-line="113" selection-start-column="66" selection-end-line="113" selection-end-column="66" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#644#676#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3807">
-          <caret line="141" column="1" lean-forward="true" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
-          <folding>
-            <element signature="e#315#324#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
