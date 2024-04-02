@@ -50,10 +50,16 @@ def manage_food(request, restaurantId, foodId):
 @eatdd_login_required
 def create_food(request, restaurantId):
     received_data = json.loads(request.body.decode('utf-8'))
+    print(received_data)
     new_food = models.Food(name=received_data['food_name'],
                            description=received_data['description'],
                            price=received_data['price'],
                            image=received_data['image'],
+                           newCode=received_data['newCode'],
+                           category=received_data['categoryName'],
+                           newSpec=received_data['newSpec'],
+                           newUnit=received_data['newUnit'],
+                           newStatus=received_data['newStatus'],
                            priority=received_data['priority'],
                            restaurant_id=restaurantId)
     new_food.save()
