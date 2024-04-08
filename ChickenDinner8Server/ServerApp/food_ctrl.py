@@ -56,7 +56,7 @@ def create_food(request, restaurantId):
                            price=received_data['price'],
                            image=received_data['image'],
                            newCode=received_data['newCode'],
-                           category=received_data['categoryName'],
+                           category_id=received_data['categoryName'],
                            newSpec=received_data['newSpec'],
                            newUnit=received_data['newUnit'],
                            newStatus=received_data['newStatus'],
@@ -73,6 +73,7 @@ def get_menu(request, restaurantId):
     return utils.eatDDJsonResponse({"foods": food_queryset_to_array(queryset)})
 
 
+
 def food_to_dict(new_food):
     return {
         "food_id": new_food.pk,
@@ -80,7 +81,12 @@ def food_to_dict(new_food):
         "description": new_food.description,
         "price": new_food.price,
         "priority": new_food.priority,
-        "image": new_food.image
+        "image": new_food.image,
+        "newcode": new_food.newCode,
+        "categoryname": new_food.category.name,
+        "newspec": new_food.newSpec,
+        "newunit": new_food.newUnit,
+        "newstatus": new_food.newStatus
     }
 
 

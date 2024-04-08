@@ -2,6 +2,10 @@ from django.http import HttpResponse
 # from django.shortcuts import render_to_response
 from django.views.decorators.http import require_http_methods
 import json
+from rest_framework import mixins
+from rest_framework import viewsets
+from .models import GoodsCategory
+from .serializers import CategorySerializer
 from . import models
 
 
@@ -78,3 +82,15 @@ def req_restaurant(request):
 
 def sendJsonData(msg, status_code=200):
     return HttpResponse(msg, content_type="application/json", status=status_code)
+
+
+class CategoryViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    """
+    list:
+        商品分类列表数据
+    retrieve:
+        获取商品分类详情
+    """
+    queryset = GoodsCategory.objects.filter(category_type=1)
+    serializer_class = CategorySerializer
+

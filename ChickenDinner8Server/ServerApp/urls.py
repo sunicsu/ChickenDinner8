@@ -25,6 +25,7 @@ urlpatterns = [
     path('restaurant/orders/<int:restaurantId>', order_ctrl.manage_restaurant_order),
     path('upload_image', image_ctrl.upload_image, name='upload_image'),
     path('TakeImage', image_ctrl.TakeImage.as_view(), name='TakeImage'),
+    path('CategoryViewset', views.CategoryViewset.as_view({'get': 'list'}), name='CategoryViewset'),
     path('get_comments', comment_ctrl.get_comments, name='get_comments'),
     path('pay', pay.WeChatPayNotifyViewSet.as_view(), name='pay'),
     path('payNotify', pay.WeChatPayNotifyViewSet.as_view(), name='payNotify'),

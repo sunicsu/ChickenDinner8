@@ -53,16 +53,16 @@ class GoodsCategory(models.Model):
 class Food(models.Model):
     category = models.ForeignKey(GoodsCategory, verbose_name="商品类目", on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=100)
-    newCode = models.CharField(max_length=50, default="", verbose_name="商品唯一编码")
+    newCode = models.CharField(max_length=50, default="", verbose_name="商品唯一编码", null=True)
     price = models.DecimalField(decimal_places=5, max_digits=10)
-    newSpec = models.TextField()
-    newUnit = models.TextField()
-    newStatus = models.TextField()
-    description = models.TextField()
+    newSpec = models.TextField(null=True)
+    newUnit = models.TextField(null=True)
+    newStatus = models.TextField(null=True)
+    description = models.TextField(null=True)
     image = models.URLField()
     priority = models.IntegerField()
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-    time = models.DateTimeField(auto_now_add=True, editable=False)
+    add_time = models.DateTimeField(auto_now_add=True, editable=False)
 
 
 class Order(models.Model):
