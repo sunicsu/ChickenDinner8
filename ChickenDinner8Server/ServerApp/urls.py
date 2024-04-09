@@ -20,6 +20,7 @@ urlpatterns = [
     path('food/<int:restaurantId>', food_ctrl.create_food, name='create_food'),
     path('food/<int:restaurantId>/<int:foodId>', food_ctrl.manage_food, name='manage_food'),
     path('menu/<int:restaurantId>', food_ctrl.get_menu, name='get_menu'),
+    path('get_category_dish/<int:restaurantId>/<int:category_id>', food_ctrl.get_category_dish, name='get_menu'),
     path('buyer/session', wechat_login_ctrl.wechat_login, name='wechat_login'),
     path('restaurant/orders/<int:restaurantId>/<int:tableId>', order_ctrl.manage_table_order),
     path('restaurant/orders/<int:restaurantId>', order_ctrl.manage_restaurant_order),

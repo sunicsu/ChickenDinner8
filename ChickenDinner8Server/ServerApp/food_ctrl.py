@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.views.decorators.http import require_http_methods
 import json
+from django.db.models import Q
 from ServerApp import models
 from .auth_required_decorator import eatdd_login_required
 from . import utils
@@ -72,6 +73,12 @@ def get_menu(request, restaurantId):
     print(queryset)
     return utils.eatDDJsonResponse({"foods": food_queryset_to_array(queryset)})
 
+
+@require_http_methods(["GET"])
+def get_category_dish(request, restaurantId, category_id):
+    queryset = models.Food.objects.filter(Q(restaurant_id=restaurantId) & Q(category_id=category_id))
+    print(queryset)
+    return utils.eatDDJsonResponse({"foods": food_queryset_to_array(queryset)})
 
 
 def food_to_dict(new_food):
