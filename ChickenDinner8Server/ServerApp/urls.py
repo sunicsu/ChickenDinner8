@@ -30,4 +30,5 @@ urlpatterns = [
     path('get_comments', comment_ctrl.get_comments, name='get_comments'),
     path('pay', pay.WeChatPayNotifyViewSet.as_view(), name='pay'),
     path('payNotify', pay.WeChatPayNotifyViewSet.as_view(), name='payNotify'),
+    path('category_dish', food_ctrl.category_dish, name='category_dish'),
 ]

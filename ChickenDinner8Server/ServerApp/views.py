@@ -5,6 +5,7 @@ import json
 from rest_framework import mixins
 from rest_framework import viewsets
 from .models import GoodsCategory
+from rest_framework import serializers
 from .serializers import CategorySerializer
 from . import models
 
@@ -93,4 +94,6 @@ class CategoryViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets
     """
     queryset = GoodsCategory.objects.filter(category_type=1)
     serializer_class = CategorySerializer
+
+
 
