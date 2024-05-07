@@ -27,6 +27,7 @@ urlpatterns = [
     path('upload_image', image_ctrl.upload_image, name='upload_image'),
     path('TakeImage', image_ctrl.TakeImage.as_view(), name='TakeImage'),
     path('CategoryViewset', views.CategoryViewset.as_view({'get': 'list'}), name='CategoryViewset'),
+    path('TableViewset', views.TableViewset.as_view({'get': 'list'}), name='TableViewset'),
     path('get_comments', comment_ctrl.get_comments, name='get_comments'),
     path('pay', pay.WeChatPayNotifyViewSet.as_view(), name='pay'),
     path('payNotify', pay.WeChatPayNotifyViewSet.as_view(), name='payNotify'),

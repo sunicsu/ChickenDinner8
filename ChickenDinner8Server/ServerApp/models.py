@@ -23,6 +23,14 @@ class Restaurant(models.Model):
     boss = models.ForeignKey(BusinessUser, on_delete=models.CASCADE)
 
 
+class Table(models.Model):
+    id = models.AutoField(primary_key=True)
+    table_id = models.IntegerField()
+    table_name = models.CharField(max_length=20)
+    station = models.CharField(max_length=50)
+    status = models.BooleanField(default=True, verbose_name="是否可定")
+
+
 class GoodsCategory(models.Model):
     """
     商品类别

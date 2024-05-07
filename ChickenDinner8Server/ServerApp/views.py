@@ -4,9 +4,9 @@ from django.views.decorators.http import require_http_methods
 import json
 from rest_framework import mixins
 from rest_framework import viewsets
-from .models import GoodsCategory
+from .models import GoodsCategory, Table
 from rest_framework import serializers
-from .serializers import CategorySerializer
+from .serializers import CategorySerializer, TableSerializer
 from . import models
 
 
@@ -96,4 +96,11 @@ class CategoryViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets
     serializer_class = CategorySerializer
 
 
+class TableViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    """
+    list:
+        座位数据
+    """
+    queryset = Table.objects.all()
+    serializer_class = TableSerializer
 
