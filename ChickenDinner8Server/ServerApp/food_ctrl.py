@@ -45,6 +45,11 @@ def manage_food(request, restaurantId, foodId):
                 obj.price = received_data['price']
                 obj.image=received_data['image']
                 obj.priority=received_data['priority']
+                obj.newCode = received_data['newCode']
+                obj.category_id = received_data['categoryName']
+                obj.newSpec = received_data['newSpec']
+                obj.newUnit = received_data['newUnit']
+                obj.newStatus = received_data['newStatus']
                 obj.save()
                 return utils.eatDDJsonResponse(food_to_dict(obj))
             else:

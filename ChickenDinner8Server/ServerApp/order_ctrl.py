@@ -68,12 +68,12 @@ def manage_table_order(request, restaurantId, tableId):
             # Get certain boss' restaurant order
             order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
                                                          restaurant__boss_id=request.session[utils.BOSS_USERNAME],
-                                                         table=tableId)
+                                                         table_id=tableId)
         elif utils.BUYER_USERNAME in request.session:
             order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
                                                          restaurant__order__user_id=request.session[
                                                              utils.BUYER_USERNAME],
-                                                         table=tableId)
+                                                         table_id=tableId)
 
         return utils.eatDDJsonResponse(order_queryset_to_array(order_queryset))
     return HttpResponse('OK', status=200)
@@ -96,10 +96,11 @@ def manage_restaurant_order(request, restaurantId):
 def order_to_dict(order):
     order_item_queryset = models.OrderItem.objects.filter(order=order)
     food_queryset = models.Food.objects.filter(orderitem__order=order)
+
     return_result = {}
     return_result['order_id'] = order.pk
     return_result['restaurant_id'] = order.restaurant_id
-    return_result['table_id'] = order.table
+    return_result['table_id'] = order.table.table_name
     return_result['customer_id'] = order.user_id
     return_result['order_time'] = order.time.__str__()
     return_result['total_price'] = order.totalPrice

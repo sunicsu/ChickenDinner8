@@ -76,7 +76,7 @@ class Food(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(NormalUser, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
-    table = models.IntegerField()
+    table = models.ForeignKey(Table, on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
     totalPrice = models.DecimalField(decimal_places=5, max_digits=10)
 
