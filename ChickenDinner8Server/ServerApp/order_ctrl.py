@@ -21,13 +21,14 @@ def manage_table_order(request, restaurantId, tableId):
         # create new order
         received_data = json.loads(request.body.decode('utf-8'))
         foods = received_data['foods']
+        notes = received_data['notes']
         # First get the menu of this restaurant
         menu_queryset = models.Food.objects.filter(restaurant_id=restaurantId)
         food_objs = []
         total_price = 0
-        print(menu_queryset)
+        print(notes)
         for item in foods:
-            food_queryset = menu_queryset.filter(pk=item['food_id'])
+            food_queryset = menu_queryset.filter(pk=item['food_id'], )
             print(food_queryset)
             if food_queryset.exists() is False:
                 return HttpResponse('Food with id : %s not exist.' % (item['food_id']), status=500)
@@ -37,8 +38,9 @@ def manage_table_order(request, restaurantId, tableId):
         # Good to make order
         order = models.Order(user_id=request.session[utils.BUYER_USERNAME],
                              restaurant_id=restaurantId,
-                             table=tableId,
-                             totalPrice=total_price)
+                             table_id=tableId,
+                             totalPrice=total_price,
+                             notes=notes['notes'])
         order.save()
         for item in food_objs:
             order_item = models.OrderItem(order=order, food=item['food'], num=item['num'])
@@ -104,6 +106,7 @@ def order_to_dict(order):
     return_result['customer_id'] = order.user_id
     return_result['order_time'] = order.time.__str__()
     return_result['total_price'] = order.totalPrice
+    return_result['notes'] = order.notes
     return_result['detail'] = []
     for item in food_queryset:
         num = order_item_queryset.filter(food=item).first().num

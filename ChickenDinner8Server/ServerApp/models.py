@@ -79,6 +79,7 @@ class Order(models.Model):
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
     totalPrice = models.DecimalField(decimal_places=5, max_digits=10)
+    notes = models.TextField(null=True)
 
 
 class OrderItem(models.Model):
