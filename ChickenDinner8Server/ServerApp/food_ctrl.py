@@ -135,7 +135,7 @@ def category_dish(request):
         category_all_dish.append(dish_category)
         # dish_category[category.name] = serializers.serialize("json", models.Food.objects.filter(category=category))
     # print(dish_category)
-    print(category_all_dish)
+    # print(category_all_dish)
 
     return JsonResponse(category_all_dish, safe=False)
 
