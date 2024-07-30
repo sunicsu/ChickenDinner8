@@ -8,10 +8,8 @@ import json
 @require_http_methods(["GET"])
 def get_comments(request):
     queryset = models.TakeImage.objects.all()
-    if queryset.exists():
-        return utils.eatDDJsonResponse({"comments": comments_queryset_to_array(queryset)})
-    else:
-        return HttpResponse("Not exist", status=404)
+    return utils.eatDDJsonResponse({"comments": comments_queryset_to_array(queryset)})
+
 
 
 @require_http_methods(["PUT", "DELETE"])

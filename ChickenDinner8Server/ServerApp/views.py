@@ -6,7 +6,7 @@ from rest_framework import mixins
 from rest_framework import viewsets
 from .models import GoodsCategory, Table, TakeImage
 from rest_framework import serializers
-from .serializers import CategorySerializer, TableSerializer
+from .serializers import CategorySerializer, TableSerializer, CommentsSerializer
 from . import models
 
 
@@ -103,5 +103,14 @@ class TableViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
     """
     queryset = Table.objects.all()
     serializer_class = TableSerializer
+
+
+class CommentsViewset(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
+    """
+    list:
+        评论数据
+    """
+    queryset = TakeImage.objects.all()
+    serializer_class = CommentsSerializer
 
 

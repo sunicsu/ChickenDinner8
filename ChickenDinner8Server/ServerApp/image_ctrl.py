@@ -8,7 +8,7 @@ from django.shortcuts import render
 from .models import TakeImage
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from . import models
-
+import os
 from rest_framework.views import APIView
 from rest_framework.response import Response
 

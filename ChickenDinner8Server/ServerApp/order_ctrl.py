@@ -22,6 +22,7 @@ def manage_table_order(request, restaurantId, tableId):
         received_data = json.loads(request.body.decode('utf-8'))
         foods = received_data['foods']
         notes = received_data['notes']
+        mobile = received_data['mobile']
         # First get the menu of this restaurant
         menu_queryset = models.Food.objects.filter(restaurant_id=restaurantId)
         food_objs = []
@@ -34,13 +35,78 @@ def manage_table_order(request, restaurantId, tableId):
                 return HttpResponse('Food with id : %s not exist.' % (item['food_id']), status=500)
             else:
                 food_objs.append({"food": food_queryset.first(), "num": item['num']})
-                total_price = total_price + food_queryset.first().price
+                total_price = total_price + food_queryset.first().price * item['num']
         # Good to make order
         order = models.Order(user_id=request.session[utils.BUYER_USERNAME],
                              restaurant_id=restaurantId,
                              table_id=tableId,
                              totalPrice=total_price,
-                             notes=notes['notes'])
+                             notes=notes['notes'],
+                             mobile=mobile['mobile'])
+        order.save()
+        for item in food_objs:
+            order_item = models.OrderItem(order=order, food=item['food'], num=item['num'])
+            order_item.save()
+
+        # change the status of table!
+        table = models.Table.objects.get(table_id=tableId)
+        table.status = 0
+        table.save()
+        # recover the status of table
+        change_table_status(tableId)
+
+        return_result = {}
+        return_result['order_id'] = order.pk
+        return_result['restaurant_id'] = restaurantId
+        return_result['table_id'] = tableId
+        return_result['customer_id'] = request.session[utils.BUYER_USERNAME]
+        return_result['order_time'] = order.time.__str__()
+        return_result['total_price'] = order.totalPrice
+        return_result['detail'] = []
+        for item in food_objs:
+            return_result['detail'].append({"food": food_ctrl.food_to_dict(item['food']), "num": item["num"]})
+        return utils.eatDDJsonResponse(return_result)
+
+    elif request.method == "GET":
+        if utils.BOSS_USERNAME in request.session:
+            # Get certain boss' restaurant order
+            order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
+                                                         restaurant__boss_id=request.session[utils.BOSS_USERNAME],
+                                                         table_id=tableId)
+        elif utils.BUYER_USERNAME in request.session:
+            order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
+                                                         restaurant__order__user_id=request.session[
+                                                             utils.BUYER_USERNAME],
+                                                         table_id=tableId)
+
+        return utils.eatDDJsonResponse(order_queryset_to_array(order_queryset))
+    return HttpResponse('OK', status=200)
+
+
+
+@require_http_methods(["GET", "POST"])
+@eatdd_login_required
+def change_table_order(request, order_id, food_id):
+    # if already_authorized(request):
+    if request.method == "POST":
+        # create new order
+        received_data = json.loads(request.body.decode('utf-8'))
+        foods = received_data['foods']
+        order_id = received_data['order_id']
+        # First get the menu of this restaurant
+        order_queryset = models.OrderItem.objects.filter(order_id=order_id)
+        food_objs = []
+        for item in foods:
+            food_queryset = order_queryset.filter(pk=item['food_id'], )
+            print(food_queryset)
+            if food_queryset.exists() is False:
+                food_objs.append({"food_id": item['food_id'], "num": item['num']})
+            else:
+                food_objs.append({"food_id": food_queryset.first(), "num": food_queryset.first().num + item['num']})
+        # Good to make order
+        order = models.OrderItem(user_id=request.session[utils.BUYER_USERNAME],
+                             food_id=food_id,
+                             num=num)
         order.save()
         for item in food_objs:
             order_item = models.OrderItem(order=order, food=item['food'], num=item['num'])
@@ -103,10 +169,12 @@ def order_to_dict(order):
     return_result['order_id'] = order.pk
     return_result['restaurant_id'] = order.restaurant_id
     return_result['table_id'] = order.table.table_name
+    return_result['nickname'] = order.user.nickname
     return_result['customer_id'] = order.user_id
     return_result['order_time'] = order.time.__str__()
     return_result['total_price'] = order.totalPrice
     return_result['notes'] = order.notes
+    return_result['mobile'] = order.mobile
     return_result['detail'] = []
     for item in food_queryset:
         num = order_item_queryset.filter(food=item).first().num

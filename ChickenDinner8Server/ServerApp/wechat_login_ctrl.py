@@ -60,7 +60,8 @@ def __authorize_by_code(request):
     code = post_data.get('code')
     print(post_data)
     app_id = post_data.get('appId')
-    # nickname = post_data.get('nickname').strip()
+    nickname = post_data.get('nickname')
+    avatar = post_data.get('avatar')
 
     response = {}
     if not code or not app_id:
@@ -83,6 +84,8 @@ def __authorize_by_code(request):
     if not NormalUser.objects.filter(open_id=openid):
         new_user = NormalUser.objects.filter(open_id=openid)
         print('new user: open_id: %s' % openid)
+        new_user.nickname = nickname
+        new_user.avatar = avatar
         new_user.save()
         request.session[utils.BUYER_USERNAME] = new_user.first().id
         print(request.session['buyer_username'])

@@ -28,6 +28,7 @@ urlpatterns = [
     path('TakeImage', image_ctrl.TakeImage.as_view(), name='TakeImage'),
     path('CategoryViewset', views.CategoryViewset.as_view({'get': 'list'}), name='CategoryViewset'),
     path('TableViewset', views.TableViewset.as_view({'get': 'list'}), name='TableViewset'),
+    path('CommentsViewset', views.CommentsViewset.as_view({'get': 'list'}), name='CommentsViewset'),
     path('get_comments', comment_ctrl.get_comments, name='get_comments'),
     path('manage_comments/<int:comments_id>', comment_ctrl.manage_comments, name='manage_comments'),
     path('pay', pay.WeChatPayNotifyViewSet.as_view(), name='pay'),

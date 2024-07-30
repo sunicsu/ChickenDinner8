@@ -4,7 +4,7 @@ __author__ = 'bobby'
 from rest_framework import serializers
 from django.db.models import Q
 
-from .models import GoodsCategory, Food, Table
+from .models import GoodsCategory, Food, Table, TakeImage
 # from goods.models import GoodsCategoryBrand, IndexAd
 
 
@@ -38,6 +38,13 @@ class TableSerializer(serializers.ModelSerializer):
     class Meta:
         model = Table
         fields = "__all__"
+
+
+class CommentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TakeImage
+        fields = "__all__"
+
 #
 # class GoodsImageSerializer(serializers.ModelSerializer):
 #     class Meta:

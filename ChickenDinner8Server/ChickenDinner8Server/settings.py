@@ -139,7 +139,7 @@ WECHAT = {
     'SPBILL_CREATE_IP': '127.0.0.1',              # 终端IP
     'NOTIFY_URL': 'http://127.0.0.1:8000/wechat/payNotify/',     # 通知地址
     'TRADE_TYPE': 'JSAPI',                   # 交易类型
-    'MERCHANT_KEY': 'merchant_key',     # 商户KEY
+     'MERCHANT_KEY': 'merchant_key',     # 商户KEY
     'BODY': '商品描述',                # 商品描述
 }
 
@@ -150,7 +150,6 @@ WECHAT = {
 # MEDIA_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]

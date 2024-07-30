@@ -12,8 +12,9 @@ class BusinessUser(models.Model):
 class NormalUser(models.Model):
     id = models.AutoField(primary_key=True)
     open_id = models.CharField(max_length=100)
-    # nickname = models.CharField(max_length=100)
-    avatar = models.URLField()
+    nickname = models.CharField(default="", max_length=100)
+    telephone = models.TextField(default="",max_length=100)
+    avatar = models.URLField(default="", max_length=100)
 
 
 class Restaurant(models.Model):
@@ -80,6 +81,7 @@ class Order(models.Model):
     time = models.DateTimeField(auto_now=True)
     totalPrice = models.DecimalField(decimal_places=5, max_digits=10)
     notes = models.TextField(null=True)
+    mobile = models.TextField(null=True)
 
 
 class OrderItem(models.Model):
