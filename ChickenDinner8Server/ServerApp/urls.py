@@ -24,6 +24,7 @@ urlpatterns = [
     path('buyer/session', wechat_login_ctrl.wechat_login, name='wechat_login'),
     path('restaurant/orders/<int:restaurantId>/<int:tableId>', order_ctrl.manage_table_order),
     path('restaurant/orders/<int:restaurantId>', order_ctrl.manage_restaurant_order),
+    path('restaurant/orders/<int:restaurantId>/<int:tableId>/<int:order_id>', order_ctrl.change_table_order),
     path('upload_image', image_ctrl.upload_image, name='upload_image'),
     path('TakeImage', image_ctrl.TakeImage.as_view(), name='TakeImage'),
     path('CategoryViewset', views.CategoryViewset.as_view({'get': 'list'}), name='CategoryViewset'),

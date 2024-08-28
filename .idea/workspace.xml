@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="60c12350-e12a-43f4-abc1-8b895d23d1bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/comment_ctrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/comment_ctrl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/image_ctrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/image_ctrl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/order_ctrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/order_ctrl.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/wechat_login_ctrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/wechat_login_ctrl.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
+            <state relative-caret-position="297">
+              <caret line="22" column="92" selection-start-line="22" selection-start-column="92" selection-end-line="22" selection-end-column="92" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -52,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/order_ctrl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="108" column="37" selection-start-line="108" selection-start-column="37" selection-end-line="108" selection-end-column="37" />
+            <state relative-caret-position="567">
+              <caret line="111" selection-start-line="111" selection-end-line="111" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -129,8 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/food_ctrl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1431">
-              <caret line="66" column="59" selection-start-line="66" selection-start-column="59" selection-end-line="66" selection-end-column="59" />
+            <state relative-caret-position="405">
+              <caret line="28" column="101" selection-start-line="28" selection-start-column="82" selection-end-line="28" selection-end-column="101" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -168,18 +160,18 @@
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/views.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/image_ctrl.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/urls.py" />
-        <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/urls.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ChickenDinner8Server/settings.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/comment_ctrl.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/models.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/wechat_login_ctrl.py" />
+        <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/urls.py" />
         <option value="$PROJECT_DIR$/ChickenDinner8Server/ServerApp/order_ctrl.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="272" />
-    <option name="y" value="2" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="438" />
+    <option name="y" value="30" />
     <option name="width" value="1373" />
     <option name="height" value="1047" />
   </component>
@@ -624,11 +616,36 @@
       <workItem from="1722301395148" duration="635000" />
       <workItem from="1722306725779" duration="592000" />
       <workItem from="1722329007959" duration="724000" />
+      <workItem from="1722387923027" duration="612000" />
+      <workItem from="1722825878386" duration="247000" />
+      <workItem from="1722843828542" duration="606000" />
+      <workItem from="1722933022646" duration="351000" />
+      <workItem from="1723600321579" duration="867000" />
+      <workItem from="1724062174680" duration="570000" />
+      <workItem from="1724158826222" duration="594000" />
+      <workItem from="1724231347059" duration="594000" />
+      <workItem from="1724289800046" duration="839000" />
+      <workItem from="1724320584134" duration="774000" />
+      <workItem from="1724330005507" duration="2160000" />
+      <workItem from="1724374483037" duration="1783000" />
+      <workItem from="1724481711355" duration="7835000" />
+      <workItem from="1724492922230" duration="3541000" />
+      <workItem from="1724547035472" duration="4617000" />
+      <workItem from="1724576540155" duration="3808000" />
+      <workItem from="1724591179560" duration="1059000" />
+      <workItem from="1724634111531" duration="726000" />
+      <workItem from="1724660568927" duration="1188000" />
+      <workItem from="1724719066459" duration="3314000" />
+      <workItem from="1724727109429" duration="648000" />
+      <workItem from="1724743717968" duration="665000" />
+      <workItem from="1724751572164" duration="1184000" />
+      <workItem from="1724806892272" duration="2320000" />
+      <workItem from="1724830144018" duration="1275000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="552924000" />
+    <option name="totallyTimeSpent" value="595101000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -640,15 +657,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="272" y="2" width="1373" height="1047" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2132521" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20362474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.75898695" weight="0.41840088" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.75898695" weight="0.28199565" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.398374" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -893,8 +909,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="24" column="83" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
+        <state relative-caret-position="297">
+          <caret line="22" column="92" selection-start-line="22" selection-start-column="92" selection-end-line="22" selection-end-column="92" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -966,8 +982,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/food_ctrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1431">
-          <caret line="66" column="59" selection-start-line="66" selection-start-column="59" selection-end-line="66" selection-end-column="59" />
+        <state relative-caret-position="405">
+          <caret line="28" column="101" selection-start-line="28" selection-start-column="82" selection-end-line="28" selection-end-column="101" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
@@ -976,8 +992,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ChickenDinner8Server/ServerApp/order_ctrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="108" column="37" selection-start-line="108" selection-start-column="37" selection-end-line="108" selection-end-column="37" />
+        <state relative-caret-position="567">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
