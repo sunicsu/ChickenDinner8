@@ -16,6 +16,7 @@ urlpatterns = [
     path('boss/user', boss_user_ctrl.bossUserAdmin, name='api_bossUserAdmin'),
     path('restaurants', restaurant_ctrl.get_all_restaurant, name='api_restaurant'),
     path('restaurant', restaurant_ctrl.create_restaurant, name='create_restaurant'),
+    path('get_table_name/<int:table_id>', restaurant_ctrl.get_table_name, name='get_table_name'),
     path('restaurant/<int:restaurantId>/', restaurant_ctrl.manage_restaurant, name='manage_restaurant'),
     path('food/<int:restaurantId>', food_ctrl.create_food, name='create_food'),
     path('food/<int:restaurantId>/<int:foodId>', food_ctrl.manage_food, name='manage_food'),

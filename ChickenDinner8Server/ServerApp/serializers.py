@@ -40,6 +40,21 @@ class TableSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class TableNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Table
+        fields = "__all__"
+
+    def get_queryset(self):
+        # 获取请求中包含的特定ID
+        table_id = self.context['request'].query_params.get('id', None)
+        # 如果提供了ID，则只返回该ID的记录
+        if table_id is not None:
+            return Table.objects.filter(table_id=table_id)
+        # 如果没有提供ID，则返回默认的查询集
+        return Table.objects.all()
+
+
 class CommentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = TakeImage

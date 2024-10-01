@@ -6,7 +6,7 @@ from rest_framework import mixins
 from rest_framework import viewsets
 from .models import GoodsCategory, Table, TakeImage
 from rest_framework import serializers
-from .serializers import CategorySerializer, TableSerializer, CommentsSerializer
+from .serializers import CategorySerializer, TableSerializer, CommentsSerializer, TableNameSerializer
 from . import models
 
 

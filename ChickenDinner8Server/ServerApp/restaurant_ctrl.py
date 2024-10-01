@@ -62,3 +62,24 @@ def restaurant_to_dict(item):
         "description": item.description,
         "image": item.image
     }
+
+
+# @require_http_methods(["GET"])
+# @eatdd_login_required
+def get_table_name(request, table_id):
+    queryset = models.Table.objects.filter(table_id=table_id)
+    return utils.eatDDJsonResponse({"tableinfo": tablename_queryset_to_array(queryset)})
+
+
+def tablename_queryset_to_array(queryset):
+    tablename = []
+    for item in queryset:
+        tablename.append(tablename_to_dict(item))
+    return tablename
+
+
+def tablename_to_dict(item):
+    return {
+        "table_id": item.table_id,
+        "table_name": item.table_name
+    }
