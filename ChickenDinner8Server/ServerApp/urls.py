@@ -33,6 +33,7 @@ urlpatterns = [
     path('CommentsViewset', views.CommentsViewset.as_view({'get': 'list'}), name='CommentsViewset'),
     path('get_comments', comment_ctrl.get_comments, name='get_comments'),
     path('manage_comments/<int:comments_id>', comment_ctrl.manage_comments, name='manage_comments'),
+    path('update_comments/<int:comments_id>/<int:likecount>/<int:unlikecount>', comment_ctrl.update_comments, name='update_comments'),
     path('pay', pay.WeChatPayNotifyViewSet.as_view(), name='pay'),
     path('payNotify', pay.WeChatPayNotifyViewSet.as_view(), name='payNotify'),
     path('category_dish', food_ctrl.category_dish, name='category_dish'),

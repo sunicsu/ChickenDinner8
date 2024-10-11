@@ -82,6 +82,7 @@ class Order(models.Model):
     totalPrice = models.DecimalField(decimal_places=5, max_digits=10)
     notes = models.TextField(null=True)
     mobile = models.TextField(null=True)
+    nickname = models.TextField(null=True)
 
 
 class OrderItem(models.Model):
@@ -100,7 +101,9 @@ class TakeImage(models.Model):
     username = models.CharField(max_length=50)
     text = models.CharField(max_length=200)
     time = models.DateTimeField(auto_now_add=True, editable=False)
-
+    likecount = models.IntegerField(default=0)
+    unlikecount = models.IntegerField(default=0)
+    canlike = models.BooleanField(default=True)
 
 
 

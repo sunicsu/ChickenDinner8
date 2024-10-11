@@ -81,5 +81,6 @@ def tablename_queryset_to_array(queryset):
 def tablename_to_dict(item):
     return {
         "table_id": item.table_id,
-        "table_name": item.table_name
+        "table_name": item.table_name,
+        "status": item.status
     }

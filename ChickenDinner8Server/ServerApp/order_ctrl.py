@@ -23,6 +23,7 @@ def manage_table_order(request, restaurantId, tableId):
         foods = received_data['foods']
         notes = received_data['notes']
         mobile = received_data['mobile']
+        nickname = received_data['nickname']
         # First get the menu of this restaurant
         menu_queryset = models.Food.objects.filter(restaurant_id=restaurantId)
         food_objs = []
@@ -42,7 +43,8 @@ def manage_table_order(request, restaurantId, tableId):
                              table_id=tableId,
                              totalPrice=total_price,
                              notes=notes['notes'],
-                             mobile=mobile['mobile'])
+                             mobile=mobile['mobile'],
+                             nickname=nickname['nickname'])
         order.save()
         for item in food_objs:
             order_item = models.OrderItem(order=order, food=item['food'], num=item['num'])
@@ -63,6 +65,7 @@ def manage_table_order(request, restaurantId, tableId):
         return_result['order_time'] = order.time.__str__()
         return_result['total_price'] = order.totalPrice
         return_result['detail'] = []
+        # return_result['nickname'] = order.nickname
         for item in food_objs:
             return_result['detail'].append({"food": food_ctrl.food_to_dict(item['food']), "num": item["num"]})
         return utils.eatDDJsonResponse(return_result)
