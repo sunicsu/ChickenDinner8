@@ -82,13 +82,18 @@ def __authorize_by_code(request):
     print(request.session['is_authorized'])
 
     if not NormalUser.objects.filter(open_id=openid):
-        new_user = NormalUser.objects.filter(open_id=openid)
+        # new_user = NormalUser.objects.filter(open_id=openid)
         print('new user: open_id: %s' % openid)
-        new_user.nickname = nickname
-        new_user.avatar = avatar
+        new_user = models.NormalUser(
+            nickname=nickname,
+            avatar=avatar,
+            open_id=openid
+        )
+        # new_user.nickname = nickname
+        # new_user.avatar = avatar
         new_user.save()
-        request.session[utils.BUYER_USERNAME] = new_user.first().id
-        print(request.session['buyer_username'])
+        request.session[utils.BUYER_USERNAME] = new_user.id
+        print(request.session[utils.BUYER_USERNAME])
     if NormalUser.objects.filter(open_id=openid):
         old_user = NormalUser.objects.filter(open_id=openid)
         print('old user: open_id: %s' % openid)

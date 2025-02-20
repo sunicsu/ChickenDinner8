@@ -82,5 +82,6 @@ def tablename_to_dict(item):
     return {
         "table_id": item.table_id,
         "table_name": item.table_name,
-        "status": item.status
+        "status": item.status,
+        "station": item.station
     }

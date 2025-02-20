@@ -12,9 +12,9 @@ class BusinessUser(models.Model):
 class NormalUser(models.Model):
     id = models.AutoField(primary_key=True)
     open_id = models.CharField(max_length=100)
-    nickname = models.CharField(default="", max_length=100)
-    telephone = models.TextField(default="",max_length=100)
-    avatar = models.URLField(default="", max_length=100)
+    nickname = models.CharField(null=True, max_length=100)
+    telephone = models.TextField(null=True, max_length=100)
+    avatar = models.URLField(null=True, max_length=100)
 
 
 class Restaurant(models.Model):

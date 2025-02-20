@@ -82,7 +82,7 @@ def create_food(request, restaurantId):
 @require_http_methods(["GET"])
 def get_menu(request, restaurantId):
     queryset1 = models.Food.objects.filter(restaurant_id=restaurantId).annotate(num_items=Count('category_id'))
-    queryset = queryset1.annotate(name_count=Count('category_id')).order_by('category_id')
+    queryset = queryset1.annotate(name_count=Count('category_id')).order_by('category_id', '-newCode')
     # print(queryset)
     return utils.eatDDJsonResponse({"foods": food_queryset_to_array(queryset)})
 

@@ -86,6 +86,62 @@ def manage_table_order(request, restaurantId, tableId):
     return HttpResponse('OK', status=200)
 
 
+@require_http_methods(["POST"])
+@eatdd_login_required
+def system_order(request, restaurantId, tableId):
+        received_data = json.loads(request.body.decode('utf-8'))
+        foods = received_data['foods']
+        notes = received_data['notes']
+        mobile = received_data['mobile']
+        nickname = received_data['nickname']
+        # First get the menu of this restaurant
+        menu_queryset = models.Food.objects.filter(restaurant_id=restaurantId)
+        food_objs = []
+        total_price = 0
+        print(notes)
+        for item in foods:
+            food_queryset = menu_queryset.filter(pk=item['food_id'], )
+            print(food_queryset)
+            if food_queryset.exists() is False:
+                return HttpResponse('Food with id : %s not exist.' % (item['food_id']), status=500)
+            else:
+                food_objs.append({"food": food_queryset.first(), "num": item['num']})
+                total_price = total_price + food_queryset.first().price * item['num']
+        # Set the user_id to 4 for systemOrder.
+        order = models.Order(user_id=4,
+                             restaurant_id=restaurantId,
+                             table_id=tableId,
+                             totalPrice=total_price,
+                             notes=notes,
+                             mobile=mobile,
+                             nickname=nickname)
+        order.save()
+        for item in food_objs:
+            order_item = models.OrderItem(order=order, food=item['food'], num=item['num'])
+            order_item.save()
+
+        # change the status of table!
+        table = models.Table.objects.get(table_id=tableId)
+        table.status = 0
+        table.save()
+        # recover the status of table
+        change_table_status(tableId)
+
+        return_result = {}
+        return_result['order_id'] = order.pk
+        return_result['restaurant_id'] = restaurantId
+        return_result['table_id'] = tableId
+        return_result['customer_id'] = 4
+        return_result['order_time'] = order.time.__str__()
+        return_result['total_price'] = order.totalPrice
+        return_result['detail'] = []
+        return_result['nickname'] = order.nickname
+        for item in food_objs:
+            return_result['detail'].append({"food": food_ctrl.food_to_dict(item['food']), "num": item["num"]})
+        return utils.eatDDJsonResponse(return_result)
+
+
+
 
 @require_http_methods(["POST"])
 @eatdd_login_required
@@ -119,24 +175,27 @@ def change_table_order(request, restaurantId, tableId, order_id):
         table.save()
         # recover the status of table
         change_table_status(tableId)
-        #
-        # return_result = {}
-        # return_result['order_id'] = order.pk
-        # return_result['restaurant_id'] = restaurantId
-        # return_result['table_id'] = tableId
-        # return_result['customer_id'] = request.session[utils.BUYER_USERNAME]
-        # return_result['order_time'] = order.time.__str__()
-        # return_result['total_price'] = order.totalPrice
-        # return_result['detail'] = []
-        # for item in food_objs:
-        #     return_result['detail'].append({"food": food_ctrl.food_to_dict(item['food']), "num": item["num"]})
-        # return utils.eatDDJsonResponse(return_result)
 
     return HttpResponse('OK', status=200)
 
 
 @require_http_methods(["GET"])
 @eatdd_login_required
+def get_restaurant_order(request, restaurantId):
+    if utils.BOSS_USERNAME in request.session:
+        # Get certain boss' restaurant order
+        order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
+                                                     boss_id=request.session[utils.BOSS_USERNAME]).order_by('time').reverse()
+    elif utils.BUYER_USERNAME in request.session:
+        order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
+                                                     user_id=request.session[utils.BUYER_USERNAME]).order_by('time').reverse()
+
+    return utils.eatDDJsonResponse(order_queryset_to_array(order_queryset))
+
+
+@require_http_methods(["GET"])
+@eatdd_login_required
+# 后台调用定单
 def manage_restaurant_order(request, restaurantId):
     if utils.BOSS_USERNAME in request.session:
         # Get certain boss' restaurant order
@@ -156,8 +215,9 @@ def order_to_dict(order):
     return_result = {}
     return_result['order_id'] = order.pk
     return_result['restaurant_id'] = order.restaurant_id
-    return_result['table_id'] = order.table.table_name
-    return_result['nickname'] = order.user.nickname
+    return_result['table_name'] = order.table.table_name
+    return_result['table_id'] = order.table_id
+    return_result['nickname'] = order.nickname
     return_result['customer_id'] = order.user_id
     return_result['order_time'] = order.time.__str__()
     return_result['total_price'] = order.totalPrice

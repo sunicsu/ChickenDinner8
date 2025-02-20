@@ -24,6 +24,8 @@ urlpatterns = [
     path('get_category_dish/<int:restaurantId>/<int:category_id>', food_ctrl.get_category_dish, name='get_menu'),
     path('buyer/session', wechat_login_ctrl.wechat_login, name='wechat_login'),
     path('restaurant/orders/<int:restaurantId>/<int:tableId>', order_ctrl.manage_table_order),
+    path('restaurant/system_orders/<int:restaurantId>/<int:tableId>', order_ctrl.system_order),
+    path('orders/<int:restaurantId>', order_ctrl.get_restaurant_order),
     path('restaurant/orders/<int:restaurantId>', order_ctrl.manage_restaurant_order),
     path('restaurant/orders/<int:restaurantId>/<int:tableId>/<int:order_id>', order_ctrl.change_table_order),
     path('upload_image', image_ctrl.upload_image, name='upload_image'),
