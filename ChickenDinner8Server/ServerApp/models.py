@@ -86,6 +86,9 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
+    """
+    关联order 与food
+    """
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
     num = models.IntegerField()

@@ -26,6 +26,8 @@ urlpatterns = [
     path('restaurant/orders/<int:restaurantId>/<int:tableId>', order_ctrl.manage_table_order),
     path('restaurant/system_orders/<int:restaurantId>/<int:tableId>', order_ctrl.system_order),
     path('orders/<int:restaurantId>', order_ctrl.get_restaurant_order),
+    path('today_orders/<int:restaurantId>', order_ctrl.get_today_order_statistics),
+    path('weekly_dish_sales/', order_ctrl.weekly_dish_sales),
     path('restaurant/orders/<int:restaurantId>', order_ctrl.manage_restaurant_order),
     path('restaurant/orders/<int:restaurantId>/<int:tableId>/<int:order_id>', order_ctrl.change_table_order),
     path('upload_image', image_ctrl.upload_image, name='upload_image'),

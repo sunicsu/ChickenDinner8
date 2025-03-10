@@ -1,5 +1,10 @@
 from django.http import HttpResponse
 from ServerApp import models
+
+from django.forms.models import model_to_dict
+from django.http import JsonResponse
+from django.utils import timezone
+from django.db.models import Sum, Count
 from .auth_required_decorator import eatdd_login_required
 from . import utils
 import threading
@@ -191,6 +196,42 @@ def get_restaurant_order(request, restaurantId):
                                                      user_id=request.session[utils.BUYER_USERNAME]).order_by('time').reverse()
 
     return utils.eatDDJsonResponse(order_queryset_to_array(order_queryset))
+
+
+@require_http_methods(["GET"])
+@eatdd_login_required
+def get_today_order_statistics(request, restaurantId):
+    # today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    now = timezone.now()
+    # today_end = today_start + timezone.timedelta(days=7)
+    before_orders = now - timezone.timedelta(days=7)
+    if utils.BOSS_USERNAME in request.session:
+        # Get certain boss' restaurant order
+        order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
+                                                     boss_id=request.session[utils.BOSS_USERNAME],
+                                                     time__range=(before_orders, now)).order_by('time').reverse()
+    elif utils.BUYER_USERNAME in request.session:
+        order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
+                                                     user_id=request.session[utils.BUYER_USERNAME],
+                                                     time__range=(before_orders, now)).order_by('time').reverse()
+    total_price = sum(
+        order.totalPrice for order in order_queryset)
+    return HttpResponse(total_price)
+
+
+@require_http_methods(["GET"])
+@eatdd_login_required
+def weekly_dish_sales(request):
+    # 获取当前日期和时间
+    now = timezone.now()
+    before_orders = now - timezone.timedelta(days=7)
+    # 查询本周内每个菜品的销量总和
+    dish_sales = models.OrderItem.objects.filter(order__time__range=[before_orders, now]).values(
+        'food__name').annotate(sales_count=Count('food'), total_sales=Sum('num')).order_by('-total_sales')
+    # 将查询结果转换为字典列表
+    data_list = list(dish_sales)
+    # 返回JSON响应
+    return JsonResponse(data_list, safe=False)
 
 
 @require_http_methods(["GET"])
