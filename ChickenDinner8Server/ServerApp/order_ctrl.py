@@ -200,11 +200,12 @@ def get_restaurant_order(request, restaurantId):
 
 @require_http_methods(["GET"])
 @eatdd_login_required
-def get_today_order_statistics(request, restaurantId):
+def get_today_order_statistics(request, restaurantId, daysNum):
     # today_start = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
     now = timezone.now()
     # today_end = today_start + timezone.timedelta(days=7)
-    before_orders = now - timezone.timedelta(days=7)
+    # before_orders = now - timezone.timedelta(days=7)
+    before_orders = now - timezone.timedelta(days=daysNum)
     if utils.BOSS_USERNAME in request.session:
         # Get certain boss' restaurant order
         order_queryset = models.Order.objects.filter(restaurant_id=restaurantId,
@@ -216,7 +217,16 @@ def get_today_order_statistics(request, restaurantId):
                                                      time__range=(before_orders, now)).order_by('time').reverse()
     total_price = sum(
         order.totalPrice for order in order_queryset)
-    return HttpResponse(total_price)
+    # 汇总桌数
+    total_table_num = len(order_queryset)
+    #每桌均价
+    if total_table_num == 0:
+        average_price = 0
+    else:
+        average_price = total_price/total_table_num
+    # return HttpResponse(total_price, total_table_num)
+    return JsonResponse({"total_price": total_price, "total_table_num": total_table_num,
+                         "average_price": average_price})
 
 
 @require_http_methods(["GET"])
@@ -225,9 +235,9 @@ def weekly_dish_sales(request):
     # 获取当前日期和时间
     now = timezone.now()
     before_orders = now - timezone.timedelta(days=7)
-    # 查询本周内每个菜品的销量总和
+    # 查询本周内每个菜品的销量总和,除小料外，排行前6名的菜品。
     dish_sales = models.OrderItem.objects.filter(order__time__range=[before_orders, now]).values(
-        'food__name').annotate(sales_count=Count('food'), total_sales=Sum('num')).order_by('-total_sales')
+        'food__name').exclude(food_id='46').annotate(total_sales=Sum('num')).order_by('-total_sales')[:6]
     # 将查询结果转换为字典列表
     data_list = list(dish_sales)
     # 返回JSON响应
